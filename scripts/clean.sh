@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo ">>>> Deleting old apps"
-if test -f "../user-management"; then
-    rm ../user-management
+if test -f "../app"; then
+    rm ../app
 fi

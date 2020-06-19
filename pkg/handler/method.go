@@ -5,14 +5,6 @@ import (
 	"net/http"
 )
 
-// MethodHandler is for validation handle any HTTP method
-type MethodHandler interface {
-	Post(*http.Request) (map[string]interface{}, error)
-	Get(*http.Request) (map[string]interface{}, error)
-	Delete(*http.Request) (map[string]interface{}, error)
-	Put(*http.Request) (map[string]interface{}, error)
-}
-
 // Post validates whether the request method is post or not
 // return error, body and the headers
 func Post(req *http.Request) (payloads map[string]interface{}, err error) {
@@ -53,7 +45,7 @@ func Put(req *http.Request) (payloads map[string]interface{}, err error) {
 // return error, params and or query strings also the header
 func Delete(req *http.Request) (params map[string]interface{}, err error) {
 	params = make(map[string]interface{}, 2)
-	if req.Method != "GET" {
+	if req.Method != "DELETE" {
 		return nil, errors.New("Method not allowed")
 	}
 	params["query"] = req.URL.Query()

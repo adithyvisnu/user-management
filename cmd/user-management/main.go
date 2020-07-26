@@ -15,6 +15,5 @@ func main() {
 
 	handler := http.NewServeMux()
 	user.RegisterHandler(handler)
-	fmt.Println(handler)
 	log.Fatal(http.ListenAndServe(":8080", handler))
 }
